@@ -1,0 +1,12 @@
+﻿@{
+    ViewBag.Title = "dir";
+}
+
+<h2>dir</h2>
+@if (Model != null)
+{
+    foreach (string s in Model)
+    {
+        <li>@s</li>
+    }
+}

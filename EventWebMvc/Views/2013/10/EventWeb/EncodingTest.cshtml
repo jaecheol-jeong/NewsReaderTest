@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "EncodingTest";
+}
+
+<h2>EncodingTest</h2>
+
+@{
+    if(Model != null){
+        //var encoding = (System.Text.Encoding)Model;
+        //<b>@encoding.EncodingName</b>
+        var headers = (System.Collections.Specialized.NameValueCollection)Model;
+        foreach(string key in headers.Keys){
+            <li>@key : @headers[key]</li>
+        }
+
+        var addrs = System.Net.Dns.GetHostAddresses(System.Net.Dns.GetHostName())
+            .Where(a => a.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork);
+            
+        foreach(var addr in addrs){
+            <li>@addr.ToString() - @addr.AddressFamily.ToString() </li>
+        }
+    }
+}

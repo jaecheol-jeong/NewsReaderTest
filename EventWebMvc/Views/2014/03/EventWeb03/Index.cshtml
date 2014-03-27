@@ -1,0 +1,16 @@
+﻿@using WebBizLibrary;
+
+@{
+    ViewBag.Title = "Index";
+    var News = (NewsEntity)@Model;
+}
+
+<h2>Index</h2>
+@News.Title <br />
+@Html.Raw(News.CopyRight) <br />
+@News.Link <br />
+@foreach (var it in News.Items)
+{
+    <a href="@it.Link" target="_blank">@it.Title</a> @it.PubDate <br />
+    @Html.Raw(@it.Description) <br />
+}

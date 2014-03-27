@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta charset="utf-8" />
+        <title>@ViewBag.Title - </title>
+        @RenderSection("Meta", false)
+        <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("/Content/css")
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+        @Scripts.Render("/bundles/modernizr")
+        @RenderSection("Script", false)
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">                    
+                    
+                </div>
+                <div class="float-right">
+                    <section id="login">
+                        @Html.Partial("_LoginPartial")
+                    </section>
+                    <nav>
+                        <ul id="menu" style="display:none;">
+                            <li>@Html.ActionLink("홈", "Index", "Home")</li>
+                            <li>@Html.ActionLink("정보", "About", "Home")</li>
+                            <li>@Html.ActionLink("연락처", "Contact", "Home")</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - 내 ASP.NET MVC 응용 프로그램</p>
+                </div>
+            </div>
+        </footer>
+
+        @Scripts.Render("/bundles/jquery")
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

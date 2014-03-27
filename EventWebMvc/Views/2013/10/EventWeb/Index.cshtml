@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+@section Script{
+<script type="text/javascript">
+    // 이벤트 응모 스크립트
+    function CommonApplyEventNetPlatformGmarket(Str, encStr, groupYn, reloadYn, callbackYn) {
+        document.domain = 'gmarket.co.kr';
+        document.cookie = "ECif" + "=" + escape(encStr) + "; path=/;domain=gmarket.co.kr";
+        groupYn = (typeof groupYn == 'undefined') ? 'N' : groupYn;
+        reloadYn = (typeof reloadYn == 'undefined' || reloadYn == '') ? 'Y' : reloadYn;
+        callbackYn = (typeof callbackYn == 'undefined') ? 'N' : callbackYn;
+        var openerURL = document.URL;
+        window.open("http://eventnet1.gmarket.co.kr/eventplatform/apply?epif=" + Str + "&groupYn=" + groupYn + "&reload=" + reloadYn + "&password=&callbackYn=" + callbackYn + "&openerURL=" + openerURL, "neteventplatformpop", "width=350, height=185, left=500, top=400, scrollbars=no,status=no,toolbar=no");
+        return;
+    }
+</script>
+}
+
+<h2>Index</h2>
+<br />
+
+<br />
+@if (ViewBag.ClientMSG != null)
+{
+    @ViewBag.ClientMSG
+}

@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@if (Model != null)
+{
+    <ul style="display:;">
+    @foreach (string s in Model)
+    {
+        <li>@s</li>
+    }
+    </ul>
+    
+}
