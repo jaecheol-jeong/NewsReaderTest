@@ -1,0 +1,4 @@
+NewsReaderTest
+==============
+
+test
